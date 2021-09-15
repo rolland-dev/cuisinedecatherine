@@ -1,7 +1,8 @@
+{% extends 'base.html.twig' %}
+
 <template>
-   <div>
-       <p>This is an example of a new components in VueJs</p>
-   </div>
+
+   
 </template>
 
 <script>
@@ -11,5 +12,6 @@
 </script>
 
 <style scoped>
-
+  
+    
 </style>

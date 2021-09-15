@@ -15,4 +15,12 @@ class MainController extends AbstractController
     {
         return $this->render('main/index.html.twig');
     }
+
+    /**
+     * @Route("/cocktails", name="cocktails")
+     */
+    public function cocktails(): Response
+    {
+        return $this->render('main/cocktails.html.twig');
+    }
 }
