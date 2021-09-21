@@ -23,4 +23,12 @@ class MainController extends AbstractController
     {
         return $this->render('main/cocktails.html.twig');
     }
+
+     /**
+     * @Route("/connexion", name="connexion")
+     */
+    public function connexion(): Response
+    {
+        return $this->render('security/login.html.twig');
+    }
 }
