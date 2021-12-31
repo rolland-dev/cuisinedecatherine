@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Recettes;
+use App\Entity\Categories;
+use App\Entity\Niveaux;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MainController extends AbstractController
 {
@@ -13,7 +16,17 @@ class MainController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('main/index.html.twig');
+        $repo = $this->getDoctrine()->getRepository(Recettes::class);
+        $recettes = $repo->findBy(array(),array('id'=>'DESC'),5,0);
+
+        $repo = $this->getDoctrine()->getRepository(Categories::class);
+        $categories = $repo->findAll();
+
+
+        return $this->render('main/index.html.twig',[
+            'recettes'=>$recettes,
+            'categories'=>$categories,
+        ]);
     }
 
     /**
@@ -21,9 +34,38 @@ class MainController extends AbstractController
      */
     public function cocktails(): Response
     {
-        return $this->render('main/cocktails.html.twig');
+        $repo = $this->getDoctrine()->getRepository(Recettes::class);
+        $recettes = $repo->findAll();
+
+        $repo = $this->getDoctrine()->getRepository(Categories::class);
+        $categories = $repo->findAll();
+
+        $repo = $this->getDoctrine()->getRepository(Niveaux::class);
+        $niveaux = $repo->findAll();
+
+        return $this->render('main/cocktails.html.twig',[
+            'recettes'=>$recettes,
+            'categories'=>$categories,
+            'niveaux'=>$niveaux,
+        ]);
     }
 
+    /**
+     * @Route("/crepes", name="crepes")
+     */
+    public function crepes(): Response
+    {
+        $repo = $this->getDoctrine()->getRepository(Recettes::class);
+        $recettes = $repo->findAll();
+
+        $repo = $this->getDoctrine()->getRepository(Categories::class);
+        $categories = $repo->findAll();
+
+        return $this->render('main/crepes.html.twig',[
+            'recettes'=>$recettes,
+            'categories'=>$categories,
+        ]);
+    }
      /**
      * @Route("/connexion", name="connexion")
      */

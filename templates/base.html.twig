@@ -22,7 +22,7 @@
     <div class="">
 
       <nav class="navbar navbar-expand-lg  navbar-light bg-transparent col-12 " >
-        <ul class="navbar-nav ml-auto" >
+        <ul class="navbar-nav ml-auto p-1" >
           {% if not app.user %}
           
             <li class="nav-item">
@@ -35,9 +35,13 @@
               <li class="nav-item" >
                 <a class="nav-link" href="{{ path('app_logout') }}"><i class="fa fa-sign-out"></i></a>
               </li> 
-              <li class="nav-item" >
-                <a class="nav-link" href="{{ path('admin') }}"><i class="fa fa-cogs"></i></a>
-              </li>                    
+              {% for role in app.user.roles %}
+                {% if role=='ROLE_ADMIN' %}
+                  <li class="nav-item" >
+                    <a class="nav-link" href="{{ path('admin') }}"><i class="fa fa-cogs"></i></a>
+                  </li>
+                {% endif %}
+              {% endfor %}                
           {% endif %}
         </ul>
       </nav>
@@ -48,10 +52,16 @@
           <img class="img"  src="{{asset('/images/ihoqvy90.gif') }}" alt="souris">
     </div>
     
-    <ul class="navbar-nav ml-auto " >
+    <ul class="navbar-nav ml-auto p-3" >
       {% if app.user %}
               <li class="nav-item ml-auto">
-                  <a class="nav-link" href="#">Bonjour {{ app.user.username }}</a>
+                {% for role in app.user.roles %}
+                  {% if role=='ROLE_ADMIN' %}
+                    <a class="nav-link" href="#">Bonjour {{ app.user.username }}  (ADMIN) </a> 
+                  {% elseif role == 'ROLE_USER' %}
+                    <a class="nav-link" href="#">Bonjour {{ app.user.username }} </a> 
+                  {% endif %}
+                {% endfor %}      
               </li>
           {% else %}
               <li class="nav-item ml-auto">
@@ -83,7 +93,7 @@
                 <a class="nav-link" href="#">Plats </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Crêpes/Galettes </a>
+                <a class="nav-link" href="{{ path('crepes') }}">Crêpes/Galettes </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Pâtes </a>
@@ -108,14 +118,14 @@
       </div>
     {% endfor %}
     
-    <div class="container fond">
+    <div class="container col-12">
       {% block body %}{% endblock %}
     </div>
 
-    <footer>
+    <div class="footer col-12">
       <br>
       <a href="#" class="col-12 card-link" target="_blank"><font style= "font-size:20px; Color: #C0C0C0; text-align: center;"> Conditions Générales d'Utilisation </font>  </a>
-  </footer>
+    </div>
 
   {% block javascripts %}
         

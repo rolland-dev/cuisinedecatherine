@@ -1,3 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "Ubuntu", sans-serif;
+}
+
+
 .fond{
     background-color: red;
  
@@ -18,16 +28,160 @@ h1{
     font-family: Arial, Helvetica, sans-serif !important;
 }
 
-.img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 25px;
-}
-
-
 .nav-link{
     color: white !important;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
+}
+
+img{
+  
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar-toggler{
+    background-color: white !important;
+}
+
+
+/******* CARD ******************/
+
+h3{
+    color: red;
+}
+.card-text a:link{
+    text-decoration: none;
+    color: red;
+}
+.card-cart-container{
+    display: flex;
+    color: red;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+.card-container .card {
+    margin: 0.4rem 1rem 0.4rem 0;
+    background: transparent;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0px 6px rgba(51, 51, 51, 0.15);
+    transition: 0.2s ease;
+    width: 202px;
+  }
+
+  .card-ref{
+      text-align: center;
+  }
+  @media screen and (max-width: 600px) {
+    .home-container .card-cart-container .card-container .card {
+      margin-right: 0.2rem;
+    }
+  }
+ .card-container .card:hover {
+    transform: scale(1.04);
+  }
+  .card-container .card:hover img .card-ref{
+    transform: scale(1.08);
+  }
+ .card-container .card:hover .card-text {
+    opacity: 1;
+    bottom: 2.3rem;
+    color: red;
+  }
+  .card-container .card .img-container {
+    overflow: hidden;
+  }
+  ..card-container .card .img-container img {
+    height: 210px;
+    transition: 0.4s ease;
+  }
+  .card-container .card .card-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.3rem 0.8rem;
+    position: absolute;
+    bottom: 1rem;
+    opacity: 0;
+    transition: 0.6s;
+    width: 100%;
+    height: 75px;
+    color:red;
+    background: linear-gradient(0deg, white 30%, transparent 100%);
+  }
+  .card-container .card .card-text h3 {
+    /* font-size: 1.2rem; */
+    padding-right: 4px;
+  }
+.card-container .card .card-text span {
+    background: #2eb7eb;
+    font-weight: bold;
+    padding: 4px 6px;
+    color: red;
+    border-radius: 4px;
+  }
+.card-container .card .card-icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 40px;
+  }
+  .card-container .card .card-icons i {
+    padding: 3px 5px;
+    transition: 0.2s;
+    cursor: pointer;
+  }
+.card-container .card .card-icons i:hover {
+    animation: scaler 0.8s infinite linear;
+  }
+  .card-container .card .card-icons .fa-heart:hover {
+    color: rgba(251, 38, 38, 0.5);
+  }
+ 
+
+  .card-container .card .card-icons .like-container input {
+    display: none;
+  }
+.card-container .card .card-icons .like-container input:checked + label i {
+    color: #fb2626;
+    animation: heart 1.3s forwards ease;
+  }
+
+  /* milieu de page */
+
+  .milieu{
+    width: auto;
+    height: 500px;
+    margin-top: 10px;
+    border: black 2px solid;
+    border-radius: 10px;
+    background-color: red;
+  }
+
+  .text-description{
+    text-align: center;
+  }
+
+  .niveau{
+    text-align: center;
+  }
+
+  .checked {  
+    color : yellow;  
+    font-size : 20px;  
+}  
+.unchecked {  
+    font-size : 20px;  
+}  
+
+.bouton{
+  align-items: center;
+  text-align: center;
 }

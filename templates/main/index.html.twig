@@ -3,17 +3,76 @@
 {% block title %}Home{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="/styles/style.css">
-  
+     <link rel="stylesheet" href="/styles/style.css"> 
 {% endblock %}
 
 {% block body %}
-    
-    <div class="container">
-        <p></p>
+
+    <div class="card-container">
+
+        {% for recette in recettes %}
+          <div class="card">
+            <div class="card-ref">
+              <h4>{{ recette.nom }}</h4>
+            </div>
+            <div class="img-container">
+              {% for categorie in categories %}
+              
+              {% endfor %}
+
+                {% if recette.categories.id == 4 %}
+                  <img src="/images/crepes.jpg" alt="crepes">
+                  <div class="card-text">
+                    <a class="lien" href="{{ path('crepes') }}"><h3>Voir...</h3> </a>
+                  </div>
+                {% elseif recette.categories.id == 3 %}
+                  <img src="/images/dessert.jpg" alt="dessert">
+                  <div class="card-text">
+                    <a class="lien" href="{{ path('cocktails') }}"><h3>Voir...</h3> </a>
+                  </div>
+                {% elseif recette.categories.id == 2 %}
+                  <img src="/images/plats.jpg" alt="plat">
+                  <div class="card-text">
+                    <a class="lien" href="{{ path('cocktails') }}"><h3>Voir...</h3> </a>
+                  </div>
+                {% elseif recette.categories.id == 1 %}
+                  <img src="/images/entrees.jpg" alt="entrées">
+                  <div class="card-text">
+                    <a class="lien" href="{{ path('cocktails') }}"><h3>Voir...</h3> </a>
+                  </div>
+                {% elseif recette.categories.id == 5 %}
+                  <img src="/images/pates.jpg" alt="pâtes">
+                  <div class="card-text">
+                    <a class="lien" href="{{ path('cocktails') }}"><h3>Voir...</h3> </a>
+                  </div>
+                {% elseif recette.categories.id == 6 %}
+                  <img src="/images/sauces.jpg" alt="sauces">
+                  <div class="card-text">
+                    <a class="lien" href="{{ path('cocktails') }}"><h3>Voir...</h3> </a>
+                  </div>
+                {% elseif recette.categories.id == 7 %}
+                  <img src="/images/divers.jpg" alt="divers">
+                  <div class="card-text">
+                    <a class="lien" href="{{ path('cocktails') }}"><h3>Voir...</h3> </a>
+                  </div>
+                {% elseif recette.categories.id == 8 %}
+                  <img src="/images/cocktails.jpg" alt="cocktails">
+                  <div class="card-text">
+                    <a class="lien" href="{{ path('cocktails') }}"><h3>Voir...</h3> </a>
+                  </div>
+                {% endif %}
+              
+            </div>
+            
+          </div>
+        {% endfor %}
+      
+
+    </div>
+  
+    <div class="milieu">
+      
     </div>
 
-    
-  
-
 {% endblock %}
+

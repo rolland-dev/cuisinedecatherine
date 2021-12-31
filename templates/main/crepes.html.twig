@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}cocktails{% endblock %}
+{% block title %}crepes{% endblock %}
 
 {% block stylesheets %}
 
@@ -11,12 +11,12 @@
 {% block body %}
     <div class="container">
         
-        <h1>cocktails</h1>
+        <h1>Crêpes</h1>
 
         <div class="card-container">
 
             {% for recette in recettes %}
-                {% if recette.categories.id == 8 %}
+                {% if recette.categories.id == 4 %}
                     <div class="card">
                         <div class="card-ref">
                             <h4>{{ recette.nom }}</h4>
@@ -47,7 +47,11 @@
                             <button type="button" class="btn btn-warning center">Voir la recette</button>
                         </div>
                     </div>
+                    
+
                 {% endif %}
+
+                
             {% endfor %}
     </div>
 
